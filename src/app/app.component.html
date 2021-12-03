@@ -1,0 +1,21 @@
+<div class="container card">
+    <table class="table-1">
+      <th colspan=2><h2>Your Order</h2></th>
+      <tr>
+        <td>
+          <div>
+            <app-coffee-list (added)="addToCart($event)"></app-coffee-list>
+          </div>
+        </td>
+        <td style="display: inline;">
+          <div>
+            <app-cart [orderList]="addedList" (deleted)="deleteFromList($event)"></app-cart>
+          </div>
+          <div *ngIf="this.coffeeService.doCheckout===true">
+            <app-checkout [orderList]="addedList"></app-checkout>
+          </div>
+        </td>
+      </tr>
+    </table>
+</div>
+

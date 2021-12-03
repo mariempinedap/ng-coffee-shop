@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <td  width="60%">Product</td>
+    <td  width="30%">Quantity</td>
+    <td  width="10%">Remove</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orderList; let orderIndex = index">
+      <td>{{ order.name }}</td>
+      <td>1</td>
+      <td align="center">
+        <a class="delete-icon" (click)="deleteOrder(orderIndex)">X</a>
+      </td>
+    </tr>
+    <tr *ngIf="orderList.length === 0">
+      <td colspan="4" align="center"><b>No Order</b></td>
+    </tr>
+    <tr *ngIf="orderList.length > 0">
+      <td colspan="4" align="center" ><button (click)="doCheckout()" class="button-3">Checkout Order</button></td>
+    </tr>
+  </tbody>
+</table>

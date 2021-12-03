@@ -1,0 +1,14 @@
+<div class="row">
+  <div *ngFor="let coffee of coffeeList">
+    <div class="card" (click)="addCoffeeToCart(coffee)">
+      <img [src]="coffee.image" style="width: 100%;"> 
+      <div class="discount" *ngIf="coffee.discount>0">
+        {{coffee.discount}} % Dto
+      </div>
+      <div class="price">
+        {{ coffee.price | currency }}
+      </div>
+      <div class="name">{{coffee.name}}</div>
+    </div> 
+  </div>
+</div>

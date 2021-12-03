@@ -1,0 +1,43 @@
+<div class="container">
+  <table style="width: 100%;">
+    <thead>
+      <td  width="10%">ITEM</td>
+      <td  width="40%">PRODUCT</td>
+      <td  width="20%">QTY</td>
+      <td  width="30%" align="right">PRICE</td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of finalOrder; let orderIndex = index">
+        <td align="center">{{ orderIndex + 1 }}</td>
+        <td>{{ order.name }}</td>
+        <td>{{ order.quantity }}</td>
+        <td align="right">{{ order.price | currency }}</td>
+      </tr>
+      <br>
+      <tr style ="border-top: 4px dotted black;">
+        <td colspan="3">Subtotal</td>
+        <td align="right">{{ calculateSumPrice() | currency }}</td>
+      </tr>
+      <tr>
+        <td colspan="3">Total Discount</td>
+        <td align="right">-{{ calculateDiscount() | currency }}</td>
+      </tr>
+      <tr>
+        <td colspan="3">Total Tax</td>
+        <td align="right">{{ calculateTax() | currency }}</td>
+      </tr>
+      <tr>
+        <td colspan="3">Total</td>
+        <td align="right">{{ calculateTotal() | currency }}</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="right" ><button (click)="doCancel()" class="button-3">Cancel</button></td>
+        <td colspan="2" ><button (click)="goToPayment()" class="button-3">Go to Payment</button></td>
+      </tr>
+      <tr>
+        <td colspan="2" ><span style="color:red"><b>{{message}}</b></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
